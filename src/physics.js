@@ -1,6 +1,6 @@
 // Verlet rope physics simulation for Loose Threads
 
-const GRAVITY = 0.3;
+const GRAVITY = -0.12; // Negative = upward buoyancy, threads float up
 const DAMPING = 0.97;
 const CONSTRAINT_ITERATIONS = 4;
 const POINTS_PER_THREAD = 10;
