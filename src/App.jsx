@@ -57,8 +57,7 @@ export default function App() {
   // ─── Initialize / update physics when threads change ───
   useEffect(() => {
     if (!canvasRef.current) return;
-    const canvas = canvasRef.current;
-    const h = canvas.height;
+    const h = window.innerHeight;
     const threadZoneTop = h * (1 - THREAD_ZONE_RATIO);
     const threadHeight = h * THREAD_ZONE_RATIO * (0.85 + Math.random() * 0.1);
 
