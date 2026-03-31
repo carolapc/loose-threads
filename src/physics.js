@@ -38,9 +38,10 @@ export function createConstraints(points) {
 function windForce(pointIndex, totalPoints, time, threadPhase, threadFreq) {
   // Each point sways more the further from anchor (bottom)
   const influence = pointIndex / totalPoints;
-  const wave = Math.sin(time * threadFreq + threadPhase) * 0.4;
-  const wave2 = Math.sin(time * threadFreq * 0.7 + threadPhase * 1.3) * 0.15;
-  return (wave + wave2) * influence * influence;
+  const wave = Math.sin(time * threadFreq + threadPhase) * 0.8;
+  const wave2 = Math.sin(time * threadFreq * 0.7 + threadPhase * 1.3) * 0.35;
+  const wave3 = Math.sin(time * threadFreq * 0.3 + threadPhase * 2.1) * 0.2;
+  return (wave + wave2 + wave3) * influence;
 }
 
 export function simulateThread(points, constraints, time, threadPhase, threadFreq, scrollVelocity = 0, dragPoint = null) {
