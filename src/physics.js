@@ -1,7 +1,7 @@
 // Verlet rope physics simulation for Loose Threads
 
-const GRAVITY = -0.12; // Negative = upward buoyancy, threads float up
-const DAMPING = 0.97;
+const GRAVITY = 0; // No drift — threads held in place by constraints
+const DAMPING = 0.985; // Fast decay after interaction
 const CONSTRAINT_ITERATIONS = 4;
 const POINTS_PER_THREAD = 10;
 
@@ -38,9 +38,9 @@ export function createConstraints(points) {
 function windForce(pointIndex, totalPoints, time, threadPhase, threadFreq) {
   // Each point sways more the further from anchor (bottom)
   const influence = pointIndex / totalPoints;
-  const wave = Math.sin(time * threadFreq + threadPhase) * 0.8;
-  const wave2 = Math.sin(time * threadFreq * 0.7 + threadPhase * 1.3) * 0.35;
-  const wave3 = Math.sin(time * threadFreq * 0.3 + threadPhase * 2.1) * 0.2;
+  const wave = Math.sin(time * threadFreq + threadPhase) * 0.012;
+  const wave2 = Math.sin(time * threadFreq * 0.7 + threadPhase * 1.3) * 0.006;
+  const wave3 = Math.sin(time * threadFreq * 0.3 + threadPhase * 2.1) * 0.004;
   return (wave + wave2 + wave3) * influence;
 }
 

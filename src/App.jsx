@@ -5,8 +5,8 @@ import { loadData, saveData, buildSeedData, createThread, SOURCE_COLORS } from '
 import { Header, AddThreadForm, DetailCard, ActionMenu } from './components';
 
 const THREAD_WIDTH = 70;
-const THREAD_GAP = 20;
-const THREAD_ZONE_RATIO = 0.38; // threads occupy bottom 38%
+const THREAD_GAP = 40;
+const THREAD_ZONE_RATIO = 0.20; // threads occupy bottom 20%
 
 export default function App() {
   const [threads, setThreads] = useState([]);
